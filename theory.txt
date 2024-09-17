@@ -1,0 +1,29 @@
+Why naming convention for apis is /api/v1/   ?
+coz we might also be using the server to serve other type of things, like web pages(front-end). So it ensures seperation of concerns
+
+app.use() adds middlewares to the applications request-processing pipeline
+
+express.json() -> When a client sends an HTTP request to the server with a JSON payload, the request is first passed via it, and it converts the JSON string in the payload to a JSON object and populates the req.body property with the parsed JSON, which can be assessed in the application using the req.body object.
+
+Collections equivalent to Tables in SQL Databases
+// Database -> Collection -> Document
+
+Mongoose is an Object Data Modelling Library 
+
+Models here are simply representation of the collections present in MongoDB Cloud( provide an interface to the Collections in the DB)
+
+once you set up a schema (using mongoose), only the properties that are specified in the schema are created for that object in the database, other properties are ignored
+
+Always make sure to handle promises gracefully(i.e code for both try and catch)
+
+General setup from the frontend on deleting some task is to call the api to get all tasks
+
+What to return in response to a DELETE request?
+res.status(200).json({task}); OR 
+res.status(300).send();
+res.status(300).json{{task:null, success:true}};
+
+// express.static() is used to serve static files from the server
+
+// What does new and runValidators options do in the findOneAndUpdate method?
+
