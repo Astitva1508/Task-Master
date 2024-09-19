@@ -25,5 +25,17 @@ res.status(300).json{{task:null, success:true}};
 
 // express.static() is used to serve static files from the server
 
-// What does new and runValidators options do in the findOneAndUpdate method?
+// What does new, runValidators and override options do in the findOneAndUpdate method?
+// new returns the updated task value
+// override used to create PUT-esque functionality, the properties which are not specified are removed
+
+
+// General API response
+res.json({
+    status:"success/failure",
+    data:{
+        tasks,
+        amount: tasks.length
+    }
+})
 
