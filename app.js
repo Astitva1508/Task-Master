@@ -4,8 +4,10 @@ const app = express();
 const tasks = require('./routes/tasks');
 const connectDB = require('./db/connect');
 const notFound = require('./middleware/not-found')
+const errorHandleMiddleware = require('./middleware/errorHandler')
 
-const PORT = 3000;
+// When you want to deploy the project in many environments, the host(platform where the project is hosted on) may want to independently set the port value 
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static('./public'));
 app.use(express.json());
@@ -19,6 +21,8 @@ app.use('/api/v1/tasks', tasks);
 
 // For the routes which cannot be resolved
 app.use(notFound);
+
+app.use(errorHandleMiddleware);
 
 const start = async () => {
     try {
